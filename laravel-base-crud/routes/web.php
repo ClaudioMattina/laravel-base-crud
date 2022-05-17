@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'FumettiController@index');
-Route::get('/{$id}', 'FumettiController@show');
+Route::get('/{id}', 'FumettiController@show')->name("fumetto.show");

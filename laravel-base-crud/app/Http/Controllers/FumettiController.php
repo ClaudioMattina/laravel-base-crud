@@ -14,7 +14,7 @@ class FumettiController extends Controller
      */
     public function index()
     {
-        $fumettis = fumetti::all();
+        $fumettis = fumetti::paginate(12);
         return view('fumetto.index', ['fumettis'=> $fumettis]);
     }
 
@@ -45,9 +45,11 @@ class FumettiController extends Controller
      * @param  \App\fumetti  $fumetti
      * @return \Illuminate\Http\Response
      */
-    public function show(fumetti $fumetti)
+    public function show($id)
     {
-        //
+        /* findOrFile($id); */
+        $fumettis= fumetti::findOrFail($id);
+        return view("fumetto.show", ['fumettis'=> $fumettis]);
     }
 
     /**
