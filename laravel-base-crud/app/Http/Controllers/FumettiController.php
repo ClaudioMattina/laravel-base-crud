@@ -24,8 +24,8 @@ class FumettiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        return view('fumetto.create');
     }
 
     /**
@@ -36,7 +36,19 @@ class FumettiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $fumetto = new fumetti();
+        $fumetto->title = $data['title'];
+        $fumetto->description = $data['description'];
+        $fumetto->thumb = $data['thumb'];
+        $fumetto->price = $data['price'];
+        $fumetto->type = $data['type'];
+        $fumetto->sale_date = $data['sale_date'];
+        $fumetto->series = $data['series'];
+        $fumetto-> save();
+
+        return redirect()->route('fumetti.show', $fumetto);
     }
 
     /**
