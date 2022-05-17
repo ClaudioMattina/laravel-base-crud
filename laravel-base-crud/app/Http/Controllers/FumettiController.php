@@ -14,7 +14,8 @@ class FumettiController extends Controller
      */
     public function index()
     {
-        return view('fumetto.index');
+        $fumettis = fumetti::all();
+        return view('fumetto.index', ['fumettis'=> $fumettis]);
     }
 
     /**
