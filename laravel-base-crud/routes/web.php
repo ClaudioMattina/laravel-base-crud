@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FumettiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('fumetto.index');
-});
+Route::get('/', 'FumettiController@index');
+Route::get('/{$id}', 'FumettiController@show');
